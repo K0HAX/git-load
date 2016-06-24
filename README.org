@@ -1,0 +1,36 @@
+* Git Load
+
+Load git repositories as packages.
+
+** Installation
+   If you're hooked up to [[http://melpa.org/][MELPA]] (as of 6-24-2016 this package is not in MELPA yet):
+
+#+BEGIN_EXAMPLE
+M-x package-refresh-contents
+M-x package-install RET git-load
+#END_EXAMPLE
+
+Alternatively
+
+#+BEGIN_SRC emacs-lisp
+(unless (git-repo? "~/.emacs.d/git/git-load")
+  (progn
+    (let ((git-repo "~/.emacs.d/git/"))
+      (git-clone "https://github.com/k0hax/git-load.git"))))
+(add-to-list 'load-path "~/.emacs.d/git/git-load")
+(load "git-load")
+#+END_SRC
+
+** Usage
+
+   The original reason I wrote this code is because MELPA's version of helm-spotify was out of date, and I wanted to test a new version.
+   Here's an example of how to do that.
+
+   #+BEGIN_SRC emacs-lisp
+   (eval-after-load "git-load"
+     (git-load "https://github.com/pschorf/helm-spotify.git" "helm-spotify"))
+   #+END_SRC
+
+** Advanced usage
+
+   If you would like to change the git directory, which is =~/.emacs.d/git/= by default. You may change =git-load-default-directory=
