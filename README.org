@@ -1,25 +1,25 @@
 * Git Load
 
-Load git repositories as packages.
+  Load git repositories as packages.
 
 ** Installation
    If you're hooked up to [[http://melpa.org/][MELPA]] (as of 6-24-2016 this package is not in MELPA yet):
 
-#+BEGIN_EXAMPLE
-M-x package-refresh-contents
-M-x package-install RET git-load
-#END_EXAMPLE
+   #+BEGIN_EXAMPLE
+   M-x package-refresh-contents
+   M-x package-install RET git-load
+   #+END_EXAMPLE
 
-Alternatively
+   Alternatively
 
-#+BEGIN_SRC emacs-lisp
-(unless (git-repo? "~/.emacs.d/git/git-load")
-  (progn
-    (let ((git-repo "~/.emacs.d/git/"))
-      (git-clone "https://github.com/k0hax/git-load.git"))))
-(add-to-list 'load-path "~/.emacs.d/git/git-load")
-(load "git-load")
-#+END_SRC
+   #+BEGIN_SRC emacs-lisp
+   (unless (git-repo? "~/.emacs.d/git/git-load")
+     (progn
+       (let ((git-repo "~/.emacs.d/git/"))
+         (git-clone "https://github.com/k0hax/git-load.git"))))
+   (add-to-list 'load-path "~/.emacs.d/git/git-load")
+   (load "git-load")
+   #+END_SRC
 
 ** Usage
 
