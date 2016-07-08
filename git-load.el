@@ -28,6 +28,8 @@
   (unless directory (setq directory git-load-default-directory))
   (unless (git-repo? (concat directory git-load-package-name))
     (let ((git-repo directory))
-      (git-clone git-load-repository)))
+      (progn
+	(git-clone git-load-repository)
+	(byte-recompile-directory (expand-file-name (concat directory git-load-package-name))))))
   (add-to-list 'load-path (concat directory git-load-package-name))
   (load git-load-package-name))
